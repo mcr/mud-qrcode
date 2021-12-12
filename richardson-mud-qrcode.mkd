@@ -1,7 +1,7 @@
 ---
 title: On loading MUD URLs from QR codes
 abbrev: QR-MUD
-docname: draft-richardson-mud-qrcode-02
+docname: draft-richardson-mud-qrcode-03
 
 stand_alone: true
 
