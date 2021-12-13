@@ -172,7 +172,6 @@ non-firmware specific.
 # Terminology          {#Terminology}
 
 {::boilerplate bcp14info}
-{::boilerplate bcp14}
 
 # Protocol
 
