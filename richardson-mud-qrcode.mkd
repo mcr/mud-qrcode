@@ -251,7 +251,7 @@ It SHOULD match the optional ietf-mud/mud/model-name in the MUD file if that ent
 
 If a third party that is creating QRcodes can not locate an official model number when creating their MUD file and QRcode, then the third party SHOULD make one up.
 
-### MUD URL Data Record
+### MUD URL Data Record {#mudurl}
 
 A new Field Identifier has been assigned by the Reverse Logistics Association (RLA), which is "M180"
 This record MUST be filled with the MUD URL.
@@ -335,6 +335,8 @@ The QR code sticker should not be placed on any part of the device that might be
 This includes security systems, robotic vacuum cleaners, anyone taking a picture with a camera.
 Such systems may store the picture(s) in such a way that a future viewer of the image will be able to decode the QR code, possibly through assembly of multiple pictures.
 Of course, the QR code is not, however, a certain indicator that the device is present, only that the QR code sticker that came with the device is present.
+
+The use of URL shorting services discussed in {{mudurl}} may result in trading convenience and efficiency with privacy, since the service provider might leverage per-device or per-customer short URLs to track and correlate requests.
 
 # Security Considerations
 
