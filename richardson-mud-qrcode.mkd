@@ -305,6 +305,9 @@ This has the advantage that the resulting Access Control Lists (ACLs) enforced i
 A MUD URL which is affixed to the device with a sticker, or etched into the case can not be changed.
 
 Given the considerations of {{I-D.ietf-opsawg-mud-acceptable-urls}} section 6.1 ("Updating MUD URLs vs Updating MUD files"), it is prudent to use a MUD URL which points to a MUD file which will only have new features added over time, and never have features removed.
+To recap, if a feature is removed from the firmware, and the MUD file still permits it then there is a potential hole that could perhaps be exploited.
+The opposite situation, where a MUD file wrongly forbids something leads to false positives in the  security system, and evidence is that this results in the entire system being ignored.
+Preventing attacks on core infrastructure may be more important than getting the ACL perfect.
 
 When the firmware eventually receives built-in MUD URL support, then a more specific URL may be used.
 
