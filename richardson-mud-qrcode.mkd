@@ -134,7 +134,7 @@ Meanwhile, use of the PKIX certification extension only makes sense as part of a
 
 In the above cases these mechanisms can only be implemented by persons with access to modify and update the firmware of the device.
 
-In the meantime there is a chicken or egg problem ({{chickenegg}}): "manufacturers are not motivated to (and thus likely do not) include MUD URLs in their products, as they believe that  there are no gateways using those URLs.
+In the meantime there is a chicken or egg problem ({{chickenegg}}): manufacturers are not motivated to (and thus likely do not) include MUD URLs in their products, as they believe that  there are no gateways using those URLs.
 At the same time, gateways have little incentive to (and thus likely do not) include code that processes MUD URLs, as it is believed that no products have and disseminate them.
 
 The protocol described in this document allows any person with physical access to the device to affix a reference to a MUD URL that can later be scanned by an end user.
