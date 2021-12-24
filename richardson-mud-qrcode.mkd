@@ -134,7 +134,7 @@ Meanwhile, use of the PKIX certification extension only makes sense as part of a
 
 In the above cases these mechanisms can only be implemented by persons with access to modify and update the firmware of the device.
 
-In the meantime there is a chicken or egg problem ({{chickenegg}}): "manufacturers are not motivated to (and thus likely do not) include MUD URLs in their products, as they believe that  there are no gateways using those URLs.
+In the meantime there is a chicken or egg problem ({{chickenegg}}): manufacturers are not motivated to (and thus likely do not) include MUD URLs in their products, as they believe that  there are no gateways using those URLs.
 At the same time, gateways have little incentive to (and thus likely do not) include code that processes MUD URLs, as it is believed that no products have and disseminate them.
 
 The protocol described in this document allows any person with physical access to the device to affix a reference to a MUD URL that can later be scanned by an end user.
@@ -279,6 +279,23 @@ This document RECOMMENDS 12 (or 16) hex octets are used with no spaces or punctu
 
 Parsers that find punctuation (such as colons (":"), dashes ("-"), or white space) MUST
 skip over it.
+
+# Applicability
+
+The use of stickers to convey MUD URLs would appear to have little value when the stickers are applied by the end user organization and consumed by the same.
+This is particularly the case when the QR code does not include the device MAC address.
+In such a situation the installer handling the device would scan the QR code to get the appropriate MUD file reference, and have to input the associated MAC address as well.
+
+In such a case, one might wonder why the installer couldn't just enter the appropriate MAC address  and select the appropriate ACLs for the device.
+No MUD file or QR code to convey it would be useful at all.
+
+The use of a MUD file (or QR code other other way to convey it) has the advantage that it offers several layers of indirection:
+
+1. The list of ACLs for a given device may be added or removed.
+2. The ACLs may refer to DNS names, which may map to IPv4 or IPv6 addresses.
+3. The entire file may be replaced, and may also include supply chain information, such as Software Bill of Materials (SBOM).
+
+In addition, the mechanism to install a new device (MAC address) to MUD file mapping does not need  to permit any other network security settings to be alterable by the person doing the installation.
 
 # Generic URL or Version Specific URL {#genericfirmware}
 
