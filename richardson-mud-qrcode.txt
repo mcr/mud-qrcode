@@ -5,10 +5,10 @@
 Network Working Group                                      M. Richardson
 Internet-Draft                                  Sandelman Software Works
 Intended status: Informational                                 J. Latour
-Expires: 15 June 2022                                          CIRA Labs
+Expires: 27 June 2022                                          CIRA Labs
                                                    H. Habibi Gharakheili
                                                              UNSW Sydney
-                                                        12 December 2021
+                                                        24 December 2021
 
 
                    On loading MUD URLs from QR codes
@@ -43,7 +43,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 15 June 2022.
+   This Internet-Draft will expire on 27 June 2022.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Richardson, et al.        Expires 15 June 2022                  [Page 1]
+Richardson, et al.        Expires 27 June 2022                  [Page 1]
 
 Internet-Draft                   QR-MUD                    December 2021
 
@@ -74,21 +74,22 @@ Table of Contents
    3.  Protocol  . . . . . . . . . . . . . . . . . . . . . . . . . .   4
      3.1.  The SQRL Protocol . . . . . . . . . . . . . . . . . . . .   4
      3.2.  Manufacturer Usage Descriptions in SQRL . . . . . . . . .   5
-       3.2.1.  B000 Company Name . . . . . . . . . . . . . . . . . .   5
+       3.2.1.  B000 Company Name . . . . . . . . . . . . . . . . . .   6
        3.2.2.  B001 Product Name . . . . . . . . . . . . . . . . . .   6
        3.2.3.  B002 Model Number . . . . . . . . . . . . . . . . . .   6
        3.2.4.  MUD URL Data Record . . . . . . . . . . . . . . . . .   6
-       3.2.5.  Device MAC Address  . . . . . . . . . . . . . . . . .   6
-   4.  Generic URL or Version Specific URL . . . . . . . . . . . . .   7
-   5.  Crowd Supply of MUD Files . . . . . . . . . . . . . . . . . .   7
-   6.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   8
-   7.  Security Considerations . . . . . . . . . . . . . . . . . . .   8
-   8.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  10
-   9.  Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  10
-   10. References  . . . . . . . . . . . . . . . . . . . . . . . . .  10
-     10.1.  Normative References . . . . . . . . . . . . . . . . . .  10
-     10.2.  Informative References . . . . . . . . . . . . . . . . .  10
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  11
+       3.2.5.  Device MAC Address  . . . . . . . . . . . . . . . . .   7
+   4.  Applicability . . . . . . . . . . . . . . . . . . . . . . . .   7
+   5.  Generic URL or Version Specific URL . . . . . . . . . . . . .   8
+   6.  Crowd Supply of MUD Files . . . . . . . . . . . . . . . . . .   8
+   7.  Privacy Considerations  . . . . . . . . . . . . . . . . . . .   9
+   8.  Security Considerations . . . . . . . . . . . . . . . . . . .   9
+   9.  IANA Considerations . . . . . . . . . . . . . . . . . . . . .  11
+   10. Acknowledgements  . . . . . . . . . . . . . . . . . . . . . .  11
+   11. References  . . . . . . . . . . . . . . . . . . . . . . . . .  11
+     11.1.  Normative References . . . . . . . . . . . . . . . . . .  11
+     11.2.  Informative References . . . . . . . . . . . . . . . . .  11
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  12
 
 1.  Introduction
 
@@ -108,8 +109,7 @@ Table of Contents
 
 
 
-
-Richardson, et al.        Expires 15 June 2022                  [Page 2]
+Richardson, et al.        Expires 27 June 2022                  [Page 2]
 
 Internet-Draft                   QR-MUD                    December 2021
 
@@ -127,7 +127,7 @@ Internet-Draft                   QR-MUD                    December 2021
    persons with access to modify and update the firmware of the device.
 
    In the meantime there is a chicken or egg problem ([chickenegg]):
-   "manufacturers are not motivated to (and thus likely do not) include
+   manufacturers are not motivated to (and thus likely do not) include
    MUD URLs in their products, as they believe that there are no
    gateways using those URLs.  At the same time, gateways have little
    incentive to (and thus likely do not) include code that processes MUD
@@ -165,7 +165,7 @@ Internet-Draft                   QR-MUD                    December 2021
 
 
 
-Richardson, et al.        Expires 15 June 2022                  [Page 3]
+Richardson, et al.        Expires 27 June 2022                  [Page 3]
 
 Internet-Draft                   QR-MUD                    December 2021
 
@@ -187,18 +187,21 @@ Internet-Draft                   QR-MUD                    December 2021
    QRcode generators are available as web services [qrcodewebservice],
    or as programs such as [qrencode].
 
-   Section 4 summarizes the considerations contained in
+   Section 5 summarizes the considerations contained in
    [I-D.ietf-opsawg-mud-acceptable-urls] section 6.1 ("Updating MUD URLs
    vs Updating MUD files").  Due to the immutable nature of the QRcode,
    MUD URLs in this document will need to be non-firmware specific.
 
 2.  Terminology
 
-   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
-   "OPTIONAL" in this document are to be interpreted as described in
-   BCP 14 [RFC2119] [RFC8174] when, and only when, they appear in all
-   capitals, as shown here.
+   Although this document is not an IETF Standards Track publication, it
+   adopts the conventions for normative language to provide clarity of
+   instructions to the implementer.  The key words "MUST", "MUST NOT",
+   "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT",
+   "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this
+   document are to be interpreted as described in BCP 14 [RFC2119]
+   [RFC8174] when, and only when, they appear in all capitals, as shown
+   here.
 
    Readers should be familiar with the terminology in [RFC8520],
    including: MUD file, MUD URL, Manufacturer and MUD manager and
@@ -216,15 +219,14 @@ Internet-Draft                   QR-MUD                    December 2021
    into QRcodes using a sequence of ASCII bytes, plus six control codes
    (see section 3.1 of [SQRL]):
 
-   *  <RS> Record Separator (ASCII 30)
 
 
-
-
-Richardson, et al.        Expires 15 June 2022                  [Page 4]
+Richardson, et al.        Expires 27 June 2022                  [Page 4]
 
 Internet-Draft                   QR-MUD                    December 2021
 
+
+   *  <RS> Record Separator (ASCII 30)
 
    *  <EoT> End of Transmission (ASCII 4)
 
@@ -267,6 +269,19 @@ Internet-Draft                   QR-MUD                    December 2021
 
 3.2.  Manufacturer Usage Descriptions in SQRL
 
+
+
+
+
+
+
+
+
+Richardson, et al.        Expires 27 June 2022                  [Page 5]
+
+Internet-Draft                   QR-MUD                    December 2021
+
+
 3.2.1.  B000 Company Name
 
    The B000 Data Record is mandatory in [SQRL].  It MUST be in ASCII
@@ -274,13 +289,6 @@ Internet-Draft                   QR-MUD                    December 2021
    brand name.  It SHOULD match the ietf-mud/mud/mfg-name in the MUD
    file, however the MUD file can contain arbitrary UTF8 for this name,
    while the SQRL files are expected to be 7-bit US-ASCII.
-
-
-
-Richardson, et al.        Expires 15 June 2022                  [Page 5]
-
-Internet-Draft                   QR-MUD                    December 2021
-
 
 3.2.2.  B001 Product Name
 
@@ -322,6 +330,14 @@ Internet-Draft                   QR-MUD                    December 2021
    The URL provided MUST NOT have a query (?) portion present.  If one
    is present, the query portion MUST be removed before processing.
 
+
+
+
+Richardson, et al.        Expires 27 June 2022                  [Page 6]
+
+Internet-Draft                   QR-MUD                    December 2021
+
+
 3.2.5.  Device MAC Address
 
    If a MAC address is used as a unique device identifier (which is
@@ -331,13 +347,6 @@ Internet-Draft                   QR-MUD                    December 2021
    [SQRL] section 9.10 defines the Data Record: "M06C" as the MAC
    address.  No format for the MAC address is provided in that document.
 
-
-
-Richardson, et al.        Expires 15 June 2022                  [Page 6]
-
-Internet-Draft                   QR-MUD                    December 2021
-
-
    This document RECOMMENDS 12 (or 16) hex octets are used with no
    spaces or punctuation. (16 octets are used in the IEEE OUI-64 format
    used in 802.15.4, and some next generation Ethernet proposals)
@@ -345,7 +354,47 @@ Internet-Draft                   QR-MUD                    December 2021
    Parsers that find punctuation (such as colons (":"), dashes ("-"), or
    white space) MUST skip over it.
 
-4.  Generic URL or Version Specific URL
+4.  Applicability
+
+   The use of stickers to convey MUD URLs would appear to have little
+   value when the stickers are applied by the end user organization and
+   consumed by the same.  This is particularly the case when the QR code
+   does not include the device MAC address.  In such a situation the
+   installer handling the device would scan the QR code to get the
+   appropriate MUD file reference, and have to input the associated MAC
+   address as well.
+
+   In such a case, one might wonder why the installer couldn't just
+   enter the appropriate MAC address and select the appropriate ACLs for
+   the device.  No MUD file or QR code to convey it would be useful at
+   all.
+
+   The use of a MUD file (or QR code other other way to convey it) has
+   the advantage that it offers several layers of indirection:
+
+   1.  The list of ACLs for a given device may be added or removed.
+
+   2.  The ACLs may refer to DNS names, which may map to IPv4 or IPv6
+       addresses.
+
+   3.  The entire file may be replaced, and may also include supply
+       chain information, such as Software Bill of Materials (SBOM).
+
+   In addition, the mechanism to install a new device (MAC address) to
+   MUD file mapping does not need to permit any other network security
+   settings to be alterable by the person doing the installation.
+
+
+
+
+
+
+Richardson, et al.        Expires 27 June 2022                  [Page 7]
+
+Internet-Draft                   QR-MUD                    December 2021
+
+
+5.  Generic URL or Version Specific URL
 
    MUD URLs which are communicated in-band by the device, and which are
    programmed into the device's firmware may provide a firmware specific
@@ -367,7 +416,7 @@ Internet-Draft                   QR-MUD                    December 2021
    Note that in many cases it will be third parties who are generating
    these QRcodes, so the MUD file may be hosted by the third party.
 
-5.  Crowd Supply of MUD Files
+6.  Crowd Supply of MUD Files
 
    At the time of writing, the IETF MUD is a new IETF Proposed Standard.
    Hence, IoT device manufacturers have not yet provided MUD profiles
@@ -386,20 +435,22 @@ Internet-Draft                   QR-MUD                    December 2021
    verifying MUD profiles, while also helping adopters of these devices
    to ensure they are compatible with their organisational policies.
 
-
-
-
-Richardson, et al.        Expires 15 June 2022                  [Page 7]
-
-Internet-Draft                   QR-MUD                    December 2021
-
-
    Similar processes have been done in a number of other public and
    private labs.  One of the strong motivations for this specification
    is to allow for this work to leave the lab, and to be applied in the
    field.
 
-6.  Privacy Considerations
+
+
+
+
+
+Richardson, et al.        Expires 27 June 2022                  [Page 8]
+
+Internet-Draft                   QR-MUD                    December 2021
+
+
+7.  Privacy Considerations
 
    The presence of the MUD URL in the QR code reveals the manufacturer
    of the device, the type or model of the device, and possibly the
@@ -421,7 +472,12 @@ Internet-Draft                   QR-MUD                    December 2021
    indicator that the device is present, only that the QR code sticker
    that came with the device is present.
 
-7.  Security Considerations
+   The use of URL shorting services discussed in Section 3.2.4 may
+   result in trading convenience and efficiency with privacy, since the
+   service provider might leverage per-device or per-customer short URLs
+   to track and correlate requests.
+
+8.  Security Considerations
 
    The mere presence of a QRcode on a device does not in itself create
    any security issues on its own.  Neither an attached paper sticker or
@@ -445,7 +501,7 @@ Internet-Draft                   QR-MUD                    December 2021
 
 
 
-Richardson, et al.        Expires 15 June 2022                  [Page 8]
+Richardson, et al.        Expires 27 June 2022                  [Page 9]
 
 Internet-Draft                   QR-MUD                    December 2021
 
@@ -501,23 +557,23 @@ Internet-Draft                   QR-MUD                    December 2021
 
 
 
-Richardson, et al.        Expires 15 June 2022                  [Page 9]
+Richardson, et al.        Expires 27 June 2022                 [Page 10]
 
 Internet-Draft                   QR-MUD                    December 2021
 
 
-8.  IANA Considerations
+9.  IANA Considerations
 
    This document makes no request for IANA actions.
 
-9.  Acknowledgements
+10.  Acknowledgements
 
    This work was supported by the Canadian Internet Registration
    Authority (cira.ca).
 
-10.  References
+11.  References
 
-10.1.  Normative References
+11.1.  Normative References
 
    [RFC2119]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", BCP 14, RFC 2119,
@@ -538,7 +594,7 @@ Internet-Draft                   QR-MUD                    December 2021
               Identifier", February 2017,
               <https://rla.org/resource/12n-documentation>.
 
-10.2.  Informative References
+11.2.  Informative References
 
    [chickenegg]
               Wikipedia, "Chicken or the egg", December 2019,
@@ -557,7 +613,7 @@ Internet-Draft                   QR-MUD                    December 2021
 
 
 
-Richardson, et al.        Expires 15 June 2022                 [Page 10]
+Richardson, et al.        Expires 27 June 2022                 [Page 11]
 
 Internet-Draft                   QR-MUD                    December 2021
 
@@ -613,7 +669,7 @@ Authors' Addresses
 
 
 
-Richardson, et al.        Expires 15 June 2022                 [Page 11]
+Richardson, et al.        Expires 27 June 2022                 [Page 12]
 
 Internet-Draft                   QR-MUD                    December 2021
 
@@ -669,4 +725,4 @@ Internet-Draft                   QR-MUD                    December 2021
 
 
 
-Richardson, et al.        Expires 15 June 2022                 [Page 12]
+Richardson, et al.        Expires 27 June 2022                 [Page 13]
