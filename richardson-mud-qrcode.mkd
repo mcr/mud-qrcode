@@ -110,7 +110,7 @@ informative:
 --- abstract
 
 This informational document details a protocol to load MUD definitions
-for devices which have no integrated Manufacturer Usage Description (MUD) [RFC8520] support.
+for devices which have no integrated Manufacturer Usage Description (MUD) as described in RFC8520.
 
 This document is published to inform the Internet community of this mechanism to allow
 interoperability and to serve as a basis of other standards work if there is interest.
