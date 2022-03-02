@@ -1,7 +1,7 @@
 ---
 title: On loading MUD URLs from QR codes
 abbrev: QR-MUD
-docname: draft-richardson-mud-qrcode-05
+docname: draft-richardson-mud-qrcode-06
 
 stand_alone: true
 
@@ -247,7 +247,7 @@ Some third parties that create QRcode stickers might not know the product name w
 
 The B002 Data Record is optional in {{SQRL}}, but is MANDATORY in this profile.
 It is the Model Name in ASCII.
-It SHOULD match the optional ietf-mud/mud/model-name in the MUD file if that entry is present in the MUD file.
+It SHOULD match the optional ietf-mud/mud/model-name in the MUD file if that entry is present in the MUD file.   MUD files can contain arbitrary UTF8 for the model-name, while the SQRL files are expected to be 7-bit US-ASCII.
 
 If a third party that is creating QRcodes can not locate an official model number when creating their MUD file and QRcode, then the third party SHOULD make one up.
 
@@ -277,9 +277,11 @@ No format for the MAC address is provided in that document.
 
 This document RECOMMENDS 12 (or 16) hex octets are used with no spaces or punctuation.
 (16 octets are used in the IEEE OUI-64 format used in 802.15.4, and some next generation Ethernet proposals)
+This document RECOMMENDS use of upper-case hexadecimal letters.
 
 Parsers that find punctuation (such as colons (":"), dashes ("-"), or white space) MUST
 skip over it.
+Parses MUST tolerate hexadecimal in both upper, lower and even mixed case. Systems SHOULD canonicalize it to upper case.
 
 # Applicability
 
@@ -369,6 +371,15 @@ An attacker that wishes to infiltrate their own devices need only suitably camou
 The network operator who takes the MUD file designated by the QRcode needs to be careful that they are validating the signature on the MUD file.
 Not only that the file is intact, but that the signer of the file is authorized to sign MUD files for that vendor, or that the network operator has some trust if the MUD file is a crowd sourced definition.
 At the time of writing, {{RFC8520}} does not define any infrastructure to authenticate or authorize MUD file signers.
+
+## URL Shortening services can change content
+
+If a URL shorterning service is used, it is possible that the MUD Controller is redirected to another MUD file with different content.
+The use of MUD signatures can detect attacks on the integrity of the file.
+To do this, the MUD controller needs to be able to verify the signature on the file.
+
+If a Trust On First Use (TOFU) policy is used for signature trust anchors, then the URL shortening service can still attack, if it substitutes content and signature on the first use.
+MUD controllers and the people operating them need to be cautious when using TOFU.
 
 ## MUD QR code stickers could be confused
 
