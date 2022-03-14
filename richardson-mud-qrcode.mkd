@@ -261,6 +261,7 @@ QRcode.
 More content in the QRcode requires a bigger image.
 
 Use of URL shortening services (see {{URLshorten}}) can be useful provided that the service is stable throughout the lifetime of the device and QRcode, and that the privacy stance of the service is well understood.
+The Security Considerations section of {{?RFC3986}} applies, particularly section 7.1.
 
 Section 8.1 of {{SQRL}} also has some good advice on longevity concerns with URLs.
 
@@ -360,7 +361,7 @@ A possibly bigger risk from application of MUD file stickers to devices is that 
 The presence of the sticker, possibly with the logo of the physical establishment in which the device is located could convey to occupants of the establishment that this device is an official device.
 For instance, a university which only deploys sensors on the university campus that have been vetted for compliance against a MUD definition.
 
-The risk is then of social engineering: any device with a reasonable looking QRcode may be seen as a trusted device.
+The risk is then of social engineering: any device with a reasonable looking QRcode may be seen as a trusted device (even though such trust is not justified based on that evidence.)
 An attacker that wishes to infiltrate their own devices need only suitably camouflage the device with an appropriate sticker in order to convey legitimacy.
 
 ## MUD files can have signatures
